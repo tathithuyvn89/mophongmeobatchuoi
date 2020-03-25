@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mèo và chuột</title>
+</head>
+<body>
+<script>
+   let Rat = function (name,weight,speed) {
+       this.name=name;
+       this.weight=weight;
+       this.speed=speed;
+       this.status=true;
+       this.sound=function () {
+           alert("Chit, Chit")
+       }
+   }
+   let Cat = function (name,weight,speed) {
+       this.name=name;
+       this.weight=weight;
+       this.speed=speed;
+       this.status=true;
+       this.sound=function () {
+           alert("Meo, Meo")
+       }
+       this.chasing=function (rat) {
+           if (this.speed>rat.speed){
+               console.log(this.name+ " bat duoc chuot "+ rat.name);
+               rat.status=false;
+           }else{
+               console.log(this.name+ " khong bat duoc chuot"+ rat.name)
+           }
+       }
+       this.eatRat=function (rat) {
+           if (!rat.status){
+               this.weight+=rat.weight;
+               alert("Chuot da bi chen");
+           }
+       }
+   }
+   let meo1=new Cat("Meo",50,25);
+   let chuot1= new Rat("Chuot",45,20);
+   meo1.chasing(chuot1);
+   meo1.eatRat(chuot1);
+   document.write(meo1.weight);
+</script>
+</body>
+</html>
